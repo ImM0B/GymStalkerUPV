@@ -20,15 +20,17 @@ Antes de usar este script, asegúrate de tener los siguientes requisitos:
 
 - **Archivos de Configuración**: Los siguientes archivos deben estar presentes en el mismo directorio que el script:
 
-  - `credentials.txt`: Archivo que contiene tus credenciales de acceso a la intranet de la UPV. Debe seguir el formato:
+  - `credentials.txt`: Archivo que contiene las credenciales de acceso a la intranet de la UPV, se pueden poner las credenciales de varios usuarios con la condición de que coincidan con las líneas del archivo `groups.txt` . Debe seguir el formato:
 
     ```
-    Alias : DNI(solo números) : Contraseña 
+    Alias DNI(solo números) Contraseña
+    Alias DNI(solo números) Contraseña
     ```
 
-  - `groups.txt`: Archivo que contiene los números de grupo que deseas reservar (Máximo 6 por cuenta). Los números tienen que ser de dos dígitos siempre, siguiendo el siguiente formato:
+  - `groups.txt`: Archivo que contiene los números de grupo que deseas reservar (Máximo 6 por cuenta). Los números tienen que ser **de dos dígitos siempre**, siguiendo el siguiente formato:
 
     ```
+    NúmeroGrupo1 NúmeroGrupo2 NúmeroGrupo3 ...
     NúmeroGrupo1 NúmeroGrupo2 NúmeroGrupo3 ...
     ```
 
