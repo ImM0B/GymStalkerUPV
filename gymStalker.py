@@ -64,6 +64,10 @@ if __name__ == "__main__":
 		groupsLines = groupsFile.readlines()
 	accounts=[]
 	number=0
+	if len(groupsLines) == 0  or groupsLines[0] == " " or len(credsLines) == 0  or credsLines[0] == " " :
+		cleanScreen()
+		print(Fore.YELLOW + f"\n[!] Porfavor lee el README antes de ejecutar el programa{Style.RESET_ALL}")
+		sig_handler(None,None)
 	for credLine,groupLine in zip(credsLines,groupsLines):
 		groups= groupLine.strip().split(' ')
 		parts = credLine.split(' ')
@@ -87,11 +91,12 @@ while True:
 	print(f"{Fore.YELLOW}\n[+] Comprobando ... {Style.RESET_ALL}\n")
 	time.sleep(1)
 	for account in accounts:
-		urlFreeGroups,freeGroups = foundFreeGroups(*account[-2:])
-		if len(urlFreeGroups) != 0 :
-			booking(urlFreeGroups,freeGroups,account[4],account[0])
-			for freeGroup in freeGroups:
-				account[5].remove(freeGroup)
+		if len(account[5]) != 0 :
+			urlFreeGroups,freeGroups = foundFreeGroups(*account[-2:])
+			if len(urlFreeGroups) != 0 :
+				booking(urlFreeGroups,freeGroups,account[4],account[0])
+				for freeGroup in freeGroups:
+					account[5].remove(freeGroup)
 	cleanScreen()
 	finished=0
 	for account in accounts:
